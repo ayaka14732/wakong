@@ -2,7 +2,7 @@ import jax; jax.config.update('jax_platforms', 'cpu')
 import jax.numpy as np
 import random
 
-from wakong import MaskScheme, generate_mask_scheme
+from wakong import generate_mask_scheme, pretty_print_mask_scheme
 
 # internal functions for testing
 from wakong.generate_mask_scheme import *
@@ -30,24 +30,6 @@ seed = r'''
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
          佛祖保佑         永無 BUG
 '''
-
-def pretty_print_mask_scheme(seq_len: int, mask_scheme: MaskScheme) -> None:
-    x = ['.'] * seq_len
-
-    for insert_pos, span in mask_scheme:
-        for i in range(insert_pos, insert_pos + span):
-            x[i] = 'x'
-
-    offset = 0
-    for insert_pos, span in mask_scheme:
-        x.insert(insert_pos + offset, '(')
-        offset += 1
-        x.insert(insert_pos + span + offset, ')')
-        offset += 1
-
-    s = ''.join(x)
-    assert ')(' not in s, 'masks cannot be continuous'
-    print(s)
 
 def pretty_print_array(a: np.ndarray) -> str:
     return f'[{", ".join(map(lambda x: f"{x:.4f}", a))}]'
