@@ -1,6 +1,10 @@
-# Python Implementation of the Wakong Algorithm
+# The Wakong Algorithm and Its Python Implementation
 
 Wakong: An appropriate and robust masking algorithm for generating the training objective of text infilling
+
+## Motivation
+
+TODO
 
 ## Installation
 
@@ -20,6 +24,19 @@ seed = 42
 rng = Random(seed)
 
 for _ in range(5):
-    mask_scheme = generate_mask_scheme(rng, seq_len=60)
-    pretty_print_mask_scheme(mask_scheme)
+    seq_len = 60
+    mask_scheme = generate_mask_scheme(rng, seq_len)
+    pretty_print_mask_scheme(seq_len, mask_scheme)
 ```
+
+Output:
+
+```
+..(xx)..(xxx)....(xx).........(x)...................................
+..............(xxxx)...............(xxxxx)......................
+..........().....(xxx)....................................(xxxxxx)
+........(xx)..................(xxxxxx)...........(xx).............
+............(xxxxx).........................(xxxxx).............
+```
+
+`.` stands for non-masked tokens, while `(xxx)` stands for substituting 3 tokens to a single mask token.
