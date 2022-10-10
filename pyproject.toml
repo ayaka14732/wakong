@@ -1,0 +1,45 @@
+[build-system]
+requires = ["flit_core>=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "wakong"
+readme = "README.md"
+requires-python = "~=3.10"
+license = { text = "CC0 1.0 Universal" }
+authors = [
+    { name = "Ayaka", email = "ayaka@mail.shn.hk" },
+]
+keywords = [
+    "algorithm",
+    "masking algorithm",
+    "nlp",
+    "natural language processing",
+    "training objective",
+    "deep learning",
+    "text processing",
+    "text infilling",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing",
+    "Typing :: Typed",
+]
+dependencies = []
+dynamic = ["version", "description"]
+
+[project.optional-dependencies]
+test = ["numpyro~=0.10.1"]
+
+[project.urls]
+Repository = "https://github.com/ayaka14732/wakong"
+
+[tool.flit.sdist]
+include = ["src/wakong/probs_list.py"]
