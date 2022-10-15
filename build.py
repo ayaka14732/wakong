@@ -1,6 +1,6 @@
 import jax; jax.config.update('jax_platforms', 'cpu')
 
-from src.wakong.generate_probs_list import generate_probs_list
+from wakong._generate_probs_list import generate_probs_list
 
 probs_list = generate_probs_list()
 

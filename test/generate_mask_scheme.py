@@ -6,7 +6,7 @@ from wakong import generate_mask_scheme, pretty_print_mask_scheme
 
 # internal functions for testing
 from wakong.generate_mask_scheme import *
-from wakong.generate_probs_list import normalise_probs
+from wakong._generate_probs_list import normalise_probs
 
 seed = r'''
                   _oo0oo_

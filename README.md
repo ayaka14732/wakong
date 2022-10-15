@@ -1,10 +1,10 @@
-# The Wakong Algorithm and Its Python Implementation
+# Wakong
 
 Wakong: An appropriate and robust masking algorithm for generating the training objective of text infilling
 
-## Motivation
+This project is the Python library of ARP 1: [_The Wakong Algorithm and Its Python Implementation_](http://arp.shn.hk/1/).
 
-TODO
+This project is supported by Cloud TPUs from Google's [TPU Research Cloud](https://sites.research.google/trc/about/) (TRC) as a part of my project on large-scale language model pre-training.
 
 ## Installation
 
@@ -14,29 +14,23 @@ Wakong supports Python 3.10 and above:
 pip install wakong
 ```
 
+You can also install from source:
+
+```sh
+flit install
+```
+
 ## Usage
 
 ```python
-from random import Random
-from wakong import generate_mask_scheme, pretty_print_mask_scheme
-
-seed = 42
-rng = Random(seed)
-
-for _ in range(5):
-    seq_len = 60
-    mask_scheme = generate_mask_scheme(rng, seq_len)
-    pretty_print_mask_scheme(seq_len, mask_scheme)
+from wakong import Wakong
+wakong = Wakong(seed=42)
+sentence = 'I can eat glass , it does not hurt me .'.split(' ')
+print(wakong(sentence))
 ```
 
 Output:
 
 ```
-..(xx)..(xxx)....(xx).........(x)...................................
-..............(xxxx)...............(xxxxx)......................
-..........().....(xxx)....................................(xxxxxx)
-........(xx)..................(xxxxxx)...........(xx).............
-............(xxxxx).........................(xxxxx).............
+['I', '<mask>', 'eat', 'glass', '<mask>', ',', 'it', 'does', 'not', 'hurt', 'me', '.']
 ```
-
-`.` stands for non-masked tokens, while `(xxx)` stands for substituting 3 tokens to a single mask token.
