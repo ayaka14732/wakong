@@ -2,7 +2,7 @@
 
 Wakong: An appropriate and robust masking algorithm for generating the training objective of text infilling
 
-This project is the Python library of ARP 1: [_The Wakong Algorithm and Its Python Implementation_](http://arp.shn.hk/1/).
+This project is the Python library of ARP 1: [_The Wakong Algorithm and Its Python Implementation_](https://arp.shn.hk/1/).
 
 This project is supported by Cloud TPUs from Google's [TPU Research Cloud](https://sites.research.google/trc/about/) (TRC) as a part of my project on large-scale language model pre-training.
 
