@@ -9,6 +9,8 @@ class Wakong:
 
     def __call__(self, words: list[str], mask_token: str='<mask>') -> list[str]:
         seq_len = len(words)
+        if seq_len < 2:
+            return words[:]
         mask_scheme = generate_mask_scheme(self.rng, seq_len)
         res = apply_mask_scheme(words, mask_scheme, mask_token=mask_token)
         return res

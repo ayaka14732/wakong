@@ -1,6 +1,6 @@
 '''Wakong: An appropriate and robust masking algorithm for generating the training objective of text infilling.'''
 
-__version__ = '1.1.0'
+__version__ = '1.1.1'
 
 from .generate_mask_scheme import MaskScheme, generate_mask_scheme
 from .pretty_print_mask_scheme import pretty_print_mask_scheme
